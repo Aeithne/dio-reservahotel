@@ -56,15 +56,14 @@ namespace DioReservaHotel {
           Console.WriteLine("--------------------------------------");
 
           // Criar um objeto Reserva e adicionar à lista
-          Reserva novaReserva = new Reserva();
-          Pessoa novoHospede = new Pessoa();
-          novaReserva.Hospede = novoHospede;
+
+          Pessoa novoHospede = new Pessoa(nomeHospede);
           Suite novoQuarto = encontrarSuite(suites, numeroQuarto);
           if (novoQuarto.Numero == -1) {
             Console.Write("Quarto não Encontrado ");
             return;
           }
-          novaReserva.Dias = numeroDias;
+          Reserva novaReserva = new Reserva(novoHospede, novoQuarto, numeroDias);
           Console.Write("Reserva feita com sucesso. O valor é R$" + novaReserva.CalcularValorTotal(novaReserva.Dias, novoQuarto));
 
           // ... atribuir valores aos atributos da novaReserva
@@ -72,8 +71,14 @@ namespace DioReservaHotel {
 
           break;
         case 2:
-          // Lógica para listar todas as reservas
-          // ... (iterar sobre a lista de reservas e exibir os dados)
+          Console.WriteLine("--------------------------------------");
+          foreach(Reserva reserva in reservas) {
+            Console.WriteLine("Hóspede:\t\t" + reserva.Hospede.Nome);
+            Console.WriteLine("Suíte:\t\t\t" + reserva.Suite.Numero);
+            Console.WriteLine("Quantidade de Dias:\t" + reserva.Dias);
+            Console.WriteLine("Valor:\t\t\t" + reserva.ValorTotal);
+            Console.WriteLine("--------------------------------------");
+          }
           break;
         case 3:
           Console.WriteLine("Saindo do sistema...");
