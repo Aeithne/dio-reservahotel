@@ -1,3 +1,5 @@
+namespace DioReservaHotel.Utils
+{
 public class Pessoa
 {
     public string Nome { get; set; }
@@ -26,4 +28,5 @@ public class Reserva
         }
         return valorTotal;
     }
+}
 }
