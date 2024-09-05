@@ -28,10 +28,12 @@ namespace DioReservaHotel {
       suites.Add(new Suite(6, 190.0));
 
       while (true) {
-        Console.WriteLine("\nMenu do Sistema de Hotel:");
+        Console.WriteLine("\n======================================");
+        Console.WriteLine("Menu do Sistema de Hotel:");
         Console.WriteLine("1. Fazer uma nova reserva");
         Console.WriteLine("2. Listar todas as reservas");
         Console.WriteLine("3. Sair");
+        Console.WriteLine("======================================");
 
         Console.Write("Digite a opção desejada: ");
         int opcao = int.Parse(Console.ReadLine());
@@ -40,14 +42,18 @@ namespace DioReservaHotel {
         case 1:
 
           // Coletar dados do usuário
+          Console.WriteLine("--------------------------------------");
           Console.Write("Digite o nome do hóspede: ");
           string nomeHospede = Console.ReadLine();
           // Coletar dados do usuário
+          Console.WriteLine("--------------------------------------");
           Console.Write("Digite o número do quarto: ");
           int numeroQuarto = int.Parse(Console.ReadLine());
           // Coletar a quantidade de reservas 
+          Console.WriteLine("--------------------------------------");
           Console.Write("Digite a quantidade de dias: ");
           int numeroDias = int.Parse(Console.ReadLine());
+          Console.WriteLine("--------------------------------------");
 
           // Criar um objeto Reserva e adicionar à lista
           Reserva novaReserva = new Reserva();
@@ -59,7 +65,7 @@ namespace DioReservaHotel {
             return;
           }
           novaReserva.Dias = numeroDias;
-          console.Write("Reserva feita com sucesso. O valor é R$" + novaReserva.CalcularValorTotal.ToString("F2"));
+          Console.Write("Reserva feita com sucesso. O valor é R$" + novaReserva.CalcularValorTotal(novaReserva.Dias, novoQuarto));
 
           // ... atribuir valores aos atributos da novaReserva
           reservas.Add(novaReserva);
